@@ -1,0 +1,9 @@
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+*.log
+*.mp4
+.vs/
+.vscode/
