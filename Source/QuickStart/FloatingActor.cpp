@@ -21,15 +21,20 @@ void AFloatingActor::BeginPlay()
 // Called every frame
 void AFloatingActor::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
-	
-	//instructions for 3.2-6 page 15
-	FVector NewLocation = GetActorLocation();
-	float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
-	NewLocation.Z += DeltaHeight * 20.0f;    //Scale our height by a factor of 20
-	RunningTime += DeltaTime;
-	SetActorLocation(NewLocation);
+		Super::Tick(DeltaTime);
 
+		FVector NewLocation = GetActorLocation();
+
+		float DeltaHeight = FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime);
+		NewLocation.Z += DeltaHeight * 20.0f;
+
+		float SpeedFactor = FMath::FRandRange(0.6f, 1.4f); 
+		NewLocation.X += FMath::Cos(RunningTime * XYFrequency) * DeltaTime * 50.0f * SpeedFactor;
+		NewLocation.Y += FMath::Sin(RunningTime * XYFrequency) * DeltaTime * 50.0f * SpeedFactor;
+
+		RunningTime += DeltaTime;
+
+		SetActorLocation(NewLocation);
 }
 
 

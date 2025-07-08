@@ -25,4 +25,7 @@ public:
 
 	//instructions for 3.1 page 15
 	float RunningTime;
+
+	UPROPERTY(EditAnywhere, Category = "Floating")
+	float XYFrequency = 1.0f;
 };
