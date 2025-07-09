@@ -26,6 +26,9 @@ public:
 	//instructions for 3.1 page 15
 	float RunningTime;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Floating")
+	float MovementMagnitude = 20.0f;
+
 	UPROPERTY(EditAnywhere, Category = "Floating")
 	float XYFrequency = 1.0f;
 };
